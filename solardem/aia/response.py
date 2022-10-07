@@ -1,13 +1,31 @@
 from pathlib import Path
+from typing import Any
 
 import astropy.units as u
 import scipy.io
 from astropy.table import QTable
 
-__all__ = ["get_aia_temperature_response"]
+from .channel import AIAChannel
+
+__all__ = ["AIAResponseTable", "get_aia_temperature_response"]
 
 
-def get_aia_temperature_response() -> QTable:
+class AIAResponseTable(QTable):  # type: ignore
+    """
+    A QTable with validation to check that expected column names are present.
+    """
+
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        super().__init__(*args, **kwargs)
+        self._validate_cols()
+
+    def _validate_cols(self) -> None:
+        assert "T" in self.colnames, "No temperature column"
+        for channel in AIAChannel:
+            assert str(channel.value) in self.colnames, f"No column for {channel.value}"
+
+
+def get_aia_temperature_response() -> AIAResponseTable:
     """
     Get an AIA temperature response table.
     """
@@ -26,4 +44,4 @@ def get_aia_temperature_response() -> QTable:
     for i, c in enumerate(channels):
         table[c] = response[i, :]
 
-    return table
+    return AIAResponseTable(table)
