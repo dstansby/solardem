@@ -4,3 +4,7 @@ doc/_build/*
 *.ipynb
 
 *.DS_Store
+
+*egg-info
+dist/*
+__pycache__

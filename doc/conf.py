@@ -6,17 +6,16 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'solardem'
-copyright = '2022, David Stansby'
-author = 'David Stansby'
+project = "solardem"
+copyright = "2022, David Stansby"
+author = "David Stansby"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['myst_parser', 'sphinx.ext.mathjax']
+extensions = ["myst_parser", "sphinx.ext.mathjax"]
 
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
-
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 
 # -- Options for HTML output -------------------------------------------------
