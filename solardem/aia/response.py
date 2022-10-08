@@ -7,7 +7,7 @@ from astropy.table import QTable
 __all__ = ["get_aia_temperature_response"]
 
 
-def get_aia_temperature_response() -> QTable():
+def get_aia_temperature_response() -> QTable:
     """
     Get an AIA temperature response table.
     """

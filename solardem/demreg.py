@@ -1,5 +1,4 @@
-from dataclasses import dataclass
-from typing import Dict, List
+from typing import Dict, List, Tuple
 
 import astropy.units as u
 import numpy as np
@@ -7,7 +6,6 @@ from astropy.table import QTable
 from demregpy import dn2dem
 
 
-@u.quantity_input
 def run_demreg(
     *,
     channel_names: List[str],
@@ -15,7 +13,7 @@ def run_demreg(
     errors: Dict[str, u.Quantity],
     response_table: QTable,
     output_temps: u.K
-):
+) -> Tuple[u.Qauntity, u.Quantity, u.Quantity, np.ndarray, u.Quantity]:
     """
     Calculate a DEM.
 
@@ -45,4 +43,11 @@ def run_demreg(
         tout,
     )
 
-    return dem, errors, logt_errors, chisq, dn_simulated
+    DEM_UNIT = 1 / (u.cm**5 * u.K)
+    return (
+        dem * DEM_UNIT,
+        errors * DEM_UNIT,
+        logt_errors * u.K,
+        chisq,
+        dn_simulated * u.DN,
+    )
