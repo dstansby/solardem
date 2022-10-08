@@ -1,5 +1,7 @@
 from enum import Enum
 
+__all__ = ["AIAChannel"]
+
 
 class AIAChannel(Enum):
     AIA94 = 94
