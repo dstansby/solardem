@@ -34,4 +34,4 @@ dem_data = run_demreg(
     output_temps=temperatures,
 )
 
-print(dem_data)
+dem_data.peek()

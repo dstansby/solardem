@@ -3,9 +3,12 @@ from textwrap import dedent
 from typing import Dict, List
 
 import astropy.units as u
+import matplotlib.pyplot as plt
 import numpy as np
 from astropy.table import QTable
+from astropy.visualization import quantity_support
 from demregpy import dn2dem
+from matplotlib.axes import Axes
 
 
 @dataclass
@@ -18,11 +21,30 @@ class DEMREGOutput:
     dn_simulated: u.Quantity
 
     def __str__(self) -> str:
+        logTrange = np.log10(self.temps[[0, -1]].to_value(u.K))
         return dedent(
-            f"""DEMREGOutput
+            f"""
+        DEMREGOutput
         ------------
-        {len(self.temps)} temperatures from {self.temps[0]} > {self.temps[-1]}"""
+        log(T/K) = [{logTrange[0]:.2f}, {logTrange[-1]:.2f}] in {len(self.temps) - 1} bins"""
         )
+
+    def peek(self) -> None:
+        """
+        Plot the output on a fresh figure, and show the figure.
+        """
+        fig, ax = plt.subplots()
+        self.plot(ax)
+        ax.set_xscale("log")
+        ax.set_yscale("log")
+        plt.show()
+
+    def plot(self, ax: Axes) -> None:
+        """
+        Plot the output. This will just plot the data, with no plot formatting.
+        """
+        quantity_support()
+        ax.stairs(self.dem, self.temps)
 
 
 def run_demreg(
