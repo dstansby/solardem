@@ -18,7 +18,7 @@ where
 - {math}`n_{H}` is the hydrogen density.
 - The integral is taken along a line of sight {math}`ds`.
 
-If there is a unique mapping from {math}`n_{e}` and {math}`T` then the differential emission measure `math`{DEM(T)} can be defined ([Del Zanna & Mason] eq. 88)
+If there is a unique mapping from {math}`n_{e}` and {math}`T` then the differential emission measure {math}`DEM(T)` can be defined as ([Del Zanna & Mason] eq. 88)
 ```{math}
 \int_{T} DEM(T) dT = \int_{h} n_{e}n_{H} dh
 ```
@@ -27,6 +27,17 @@ Substituting this into the equation for intensity and assuming the chemical abun
 ```{math}
 I \left ( \lambda \right ) = Ab(Z) \int_{T} C \left ( n_{e}, T, \lambda \right )~DEM(T)~dT
 ```
+
+If we had the perfect telescope that just observed a single wavelength this equation would be helpful.
+Sometimes this is a good approximation for diffraction spectrometers (e.g. Hinode EIS), but in general and in other cases (e.g. SDO AIA) we have to take into account that the intensity measured is an integral of the full spectrum multiplied by the transmission function {math}`T(\lambda)`.
+The intensity measured by a given telescope or channel is
+
+```{math}
+I = \int_{\lambda} T (\lambda) I(\lambda) d\lambda \\
+I =  \int_{T} \left [ \int_{\lambda} T (\lambda) Ab(Z) C \left ( n_{e}, T, \lambda \right ) d\lambda \right ]~DEM(T)~dT
+```
+The term in square brackets is a function of {math}`T` only, and called the temperature response function of the telescope or specific channel.
+Calculating it requires adding up the contribution from every line that falls in areas of high transmission function values.
 
 [Del Zanna & Mason]: https://link.springer.com/article/10.1007/s41116-018-0015-3
 

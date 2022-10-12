@@ -9,9 +9,13 @@ A package for estimating differential emission measures (DEMs) from observations
 
    dem_theory
    existing_tools
+   design
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Tutorials
 
-
+   tutorials/demreg
 
 Indices and tables
 ==================
