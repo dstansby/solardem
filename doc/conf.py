@@ -13,7 +13,11 @@ author = "David Stansby"
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ["myst_parser", "sphinx.ext.mathjax"]
+extensions = [
+    "myst_parser",
+    "sphinx.ext.mathjax",
+    "matplotlib.sphinxext.plot_directive",
+]
 
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
