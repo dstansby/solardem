@@ -56,4 +56,8 @@ Now for the DEM::
     >>> from solardem.demreg import run_demreg
     >>>
     >>> temperatures = np.logspace(4, 8, 25) * u.K
-    >>> dem_data = run_demreg(channel_names=channels, counts=counts, errors=errors, response_table=aia_t_resp, output_temps=temperatures)
+    >>> demreg_output = run_demreg(channel_names=channels, counts=counts, errors=errors, response_table=aia_t_resp, output_temps=temperatures)
+    >>> print(demreg_output)
+    DEMREGOutput
+    ------------
+    25 temperatures from 10000.0 K > 100000000.0 K
