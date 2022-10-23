@@ -67,10 +67,8 @@ def run_demreg(
     output_tems :
         Temperatures to calculate the DEM at.
     """
-    count_array = np.vstack([counts[c].to_value(u.DN) for c in channel_names]).T
-    count_array = np.broadcast_to(count_array, (1,) + count_array.shape)
-    error_array = np.vstack([errors[c].to_value(u.DN) for c in channel_names]).T
-    error_array = np.broadcast_to(error_array, (1,) + error_array.shape)
+    count_array = np.stack([np.atleast_2d(counts[c].to_value(u.DN)) for c in channel_names], axis=-1)
+    error_array = np.stack([np.atleast_2d(errors[c].to_value(u.DN)) for c in channel_names], axis=-1)
 
     tresp = np.vstack(
         [
