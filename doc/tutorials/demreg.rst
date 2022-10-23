@@ -1,11 +1,17 @@
 DEMREG
 ======
+In this tutorial we'll step through estimating a DEM using ``demreg``.
+Behind the scenes this uses the `demregpy package <https://github.com/alasdairwilson/demregpy>`__ which implements the method described in `Hannah and Kontar 2012 <https://doi.org/10.1051/0004-6361/201117576>`__.
+
+This tutotiral steps through calcuating a DEM with some fake single-pixel data.
+
 
 To use DEMREG we need the following inputs:
 
 1. Counts in a number of different channels.
 2. Associated errors on these counts for the different channels.
 3. The temperature response functions of each channel.
+
 
 For AIA lets start by defining the six channels we'll use::
 
@@ -101,3 +107,7 @@ Putting it all together, here's the full example (this time with some fake data 
     )
 
     dem_data.peek()
+
+
+Full map
+--------
