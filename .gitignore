@@ -1,11 +1,11 @@
-doc/_build/*
-doc/_auto_examples/*
+doc/_build
+doc/_auto_examples
 
-.ipynb_checkpoints/*
+.ipynb_checkpoints
 *.ipynb
 
 *.DS_Store
 
 *egg-info
-dist/*
+dist
 __pycache__
