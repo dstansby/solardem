@@ -11,6 +11,7 @@ A package for estimating differential emission measures (DEMs) from observations
    existing_tools
    design
    _auto_examples/index
+   api/index
 
 .. toctree::
    :maxdepth: 1

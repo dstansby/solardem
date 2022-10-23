@@ -17,6 +17,7 @@ extensions = [
     "matplotlib.sphinxext.plot_directive",
     "myst_parser",
     "sphinx.ext.mathjax",
+    "sphinx_automodapi.automodapi",
     "sphinx_gallery.gen_gallery",
 ]
 
@@ -28,10 +29,11 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "examples/*"]
 
 html_theme = "pydata_sphinx_theme"
 
-
-# -- Sphinx gallery configuration
+# -- Extension configuration
 sphinx_gallery_conf = {
     "examples_dirs": "./examples",  # path to your example scripts
     "gallery_dirs": "./_auto_examples",  # path to where to save gallery generated output
     "download_all_examples": False,
 }
+numpydoc_show_class_members = False
+automodapi_toctreedirnm = "_api"

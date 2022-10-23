@@ -10,6 +10,8 @@ from astropy.visualization import quantity_support
 from demregpy import dn2dem
 from matplotlib.axes import Axes
 
+__all__ = ["DEMREGOutput", "run_demreg"]
+
 
 @dataclass
 class DEMREGOutput:
@@ -67,8 +69,12 @@ def run_demreg(
     output_tems :
         Temperatures to calculate the DEM at.
     """
-    count_array = np.stack([np.atleast_2d(counts[c].to_value(u.DN)) for c in channel_names], axis=-1)
-    error_array = np.stack([np.atleast_2d(errors[c].to_value(u.DN)) for c in channel_names], axis=-1)
+    count_array = np.stack(
+        [np.atleast_2d(counts[c].to_value(u.DN)) for c in channel_names], axis=-1
+    )
+    error_array = np.stack(
+        [np.atleast_2d(errors[c].to_value(u.DN)) for c in channel_names], axis=-1
+    )
 
     tresp = np.vstack(
         [

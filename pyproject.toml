@@ -20,8 +20,10 @@ dependencies = [
 
 [project.optional-dependencies]
 docs = [
+    "numpydoc",
     "pydata-sphinx-theme",
     "sphinx",
+    "sphinx-automodapi",
     "sphinx-gallery"
 ]
 
