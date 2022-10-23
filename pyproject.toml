@@ -10,8 +10,10 @@ name = "solardem"
 version = "0.0.1"
 dependencies = [
     "astropy",
+    "matplotlib",
     "numpy",
-    "scipy"
+    "scipy",
+    "sunpy",
 ]
 
 [mypy-astropy]
