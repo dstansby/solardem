@@ -16,6 +16,7 @@ author = "David Stansby"
 extensions = [
     "matplotlib.sphinxext.plot_directive",
     "myst_parser",
+    "sphinx.ext.intersphinx",
     "sphinx.ext.mathjax",
     "sphinx_automodapi.automodapi",
     "sphinx_gallery.gen_gallery",
@@ -37,3 +38,7 @@ sphinx_gallery_conf = {
 }
 numpydoc_show_class_members = False
 automodapi_toctreedirnm = "_api"
+intersphinx_mapping = {
+    "python": ("https://docs.python.org/3", None),
+    "astropy": ("https://docs.astropy.org/en/stable/", None),
+}
