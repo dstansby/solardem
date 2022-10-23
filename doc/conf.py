@@ -14,15 +14,24 @@ author = "David Stansby"
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
+    "matplotlib.sphinxext.plot_directive",
     "myst_parser",
     "sphinx.ext.mathjax",
-    "matplotlib.sphinxext.plot_directive",
+    "sphinx_gallery.gen_gallery",
 ]
 
-exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "examples/*"]
 
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = "pydata_sphinx_theme"
+
+
+# -- Sphinx gallery configuration
+sphinx_gallery_conf = {
+    "examples_dirs": "./examples",  # path to your example scripts
+    "gallery_dirs": "./_auto_examples",  # path to where to save gallery generated output
+    "download_all_examples": False,
+}

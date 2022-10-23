@@ -4,22 +4,16 @@ solardem
 A package for estimating differential emission measures (DEMs) from observations of the Sun.
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 1
+   :caption: Contents
 
    dem_theory
    existing_tools
    design
+   _auto_examples/index
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Tutorials
 
    tutorials/demreg
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

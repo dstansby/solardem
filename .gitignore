@@ -1,4 +1,5 @@
 doc/_build/*
+doc/_auto_examples/*
 
 .ipynb_checkpoints/*
 *.ipynb
