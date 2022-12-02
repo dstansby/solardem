@@ -59,7 +59,7 @@ Next lets load a temperature response table for AIA::
 Now for the DEM::
 
     >>> import numpy as np
-    >>> from solardem.demreg import run_demreg
+    >>> from solardem.methods.demreg import run_demreg
     >>>
     >>> temperatures = np.logspace(4, 8, 25) * u.K
     >>> demreg_output = run_demreg(channel_names=channels, counts=counts, errors=errors, response_table=aia_t_resp, output_temps=temperatures)
@@ -77,7 +77,7 @@ Putting it all together, here's the full example (this time with some fake data 
     import numpy as np
 
     from solardem.instruments.aia import get_aia_temperature_response
-    from solardem.demreg import run_demreg
+    from solardem.methods.demreg import run_demreg
 
     channels = ["94", "131", "171", "193", "211", "335"]
     dn_in = [

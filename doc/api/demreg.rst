@@ -1,1 +1,1 @@
-.. automodapi:: solardem.demreg
+.. automodapi:: solardem.methods.demreg
