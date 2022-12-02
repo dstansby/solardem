@@ -28,5 +28,5 @@ docs = [
     "sphinx-gallery"
 ]
 
-[mypy-astropy]
-ignore_missing_imports = "True"
+[tool.codespell]
+skip = '.git'
