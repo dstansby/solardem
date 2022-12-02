@@ -36,6 +36,7 @@ class DEMREGOutput:
     dn_simulated : `~astropy.units.Quantity`
         The simulated DN values for the estimated DEM.
     """
+
     dem: u.Quantity
     dem_errors: u.Quantity
     temps: u.Quantity
