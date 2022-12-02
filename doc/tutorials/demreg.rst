@@ -26,7 +26,7 @@ Now for some fake data and errors::
 
 Next lets load a temperature response table for AIA::
 
-    >>> from solardem.aia import get_aia_temperature_response
+    >>> from solardem.instruments.aia import get_aia_temperature_response
     >>>
     >>> aia_t_resp = get_aia_temperature_response()
     >>> print(aia_t_resp)
@@ -76,7 +76,7 @@ Putting it all together, here's the full example (this time with some fake data 
     import astropy.units as u
     import numpy as np
 
-    from solardem.aia import get_aia_temperature_response
+    from solardem.instruments.aia import get_aia_temperature_response
     from solardem.demreg import run_demreg
 
     channels = ["94", "131", "171", "193", "211", "335"]
