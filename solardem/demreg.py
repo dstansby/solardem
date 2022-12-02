@@ -15,6 +15,27 @@ __all__ = ["DEMREGOutput", "run_demreg"]
 
 @dataclass
 class DEMREGOutput:
+    """
+    Output of DEMREG DEM code.
+
+    Note that instances of this class are not intended to be created by
+    users!
+
+    Parameters
+    ----------
+    dem : `~astropy.units.Quantity`
+        DEM values.
+    dem_errors : `~astropy.units.Quantity`
+        Errors on the DEM values.
+    temps : `~astropy.units.Quantity`
+        Temperatures at which the DEM was calculated.
+    temps_errors : `~astropy.units.Quantity`
+        Errors on the temperatures.
+    chisq : nunpy.ndarray
+        Chi squared values.
+    dn_simulated : `~astropy.units.Quantity`
+        The simulated DN values for the estimated DEM.
+    """
     dem: u.Quantity
     dem_errors: u.Quantity
     temps: u.Quantity
@@ -34,6 +55,8 @@ class DEMREGOutput:
     def peek(self) -> None:
         """
         Plot the output on a fresh figure, and show the figure.
+
+        This can be used to make a quicklook plot.
         """
         fig, ax = plt.subplots()
         self.plot(ax)
@@ -43,7 +66,14 @@ class DEMREGOutput:
 
     def plot(self, ax: Axes) -> None:
         """
-        Plot the output. This will just plot the data, with no plot formatting.
+        Plot the output.
+
+        This will just plot the data, with no plot formatting.
+
+        Parameters
+        ----------
+        ax : `~maptlotlib.axes.Axes`
+            Axes to plot on.
         """
         quantity_support()
         ax.stairs(self.dem, self.temps)
@@ -60,14 +90,25 @@ def run_demreg(
     """
     Calculate a DEM.
 
-    counts :
+    This uses the DEMREG method.
+
+    Parameters
+    ----------
+    channel_names : list[str]
+        Channel names.
+    counts : dict
         Mapping of channel to counts in that channel.
-    errors :
+    errors : dict
         Mapping of channel to error on the counts in that channel.
-    response_table :
+    response_table : `~astropy.table.QTable`
         Temperature response table.
-    output_tems :
+    output_temps : `~astropy.units.Quantity`
         Temperatures to calculate the DEM at.
+
+    Returns
+    -------
+    DEMREGOutput
+        Output container.
     """
     count_array = np.stack(
         [np.atleast_2d(counts[c].to_value(u.DN)) for c in channel_names], axis=-1

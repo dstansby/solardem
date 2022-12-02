@@ -16,6 +16,7 @@ author = "David Stansby"
 extensions = [
     "matplotlib.sphinxext.plot_directive",
     "myst_parser",
+    "numpydoc",
     "sphinx.ext.intersphinx",
     "sphinx.ext.mathjax",
     "sphinx_automodapi.automodapi",
@@ -41,4 +42,10 @@ automodapi_toctreedirnm = "_api"
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3", None),
     "astropy": ("https://docs.astropy.org/en/stable/", None),
+}
+
+numpydoc_validation_checks = {
+    "all",
+    "SA01", # Allow omitting See Also section
+    "EX01"  # Allow omitting Examples section
 }
