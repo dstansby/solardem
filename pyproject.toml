@@ -20,6 +20,7 @@ dependencies = [
 
 [project.optional-dependencies]
 docs = [
+    "myst_parser",
     "numpydoc",
     "pydata-sphinx-theme",
     "sphinx",
