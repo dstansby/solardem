@@ -12,7 +12,7 @@ def get_aia_temperature_response() -> QTable:
     Get an AIA temperature response table.
     """
     # Taken from https://github.com/alasdairwilson/demregpy/blob/bd20406ad6df0a0b06f92bfe9f324bae7fdb816c/demregpy/tresp/aia_tresp_en.dat
-    f = Path(__file__).parent.parent / "data" / "aia_tresp_en.dat"
+    f = Path(__file__).parent.parent.parent / "data" / "aia_tresp_en.dat"
     data = scipy.io.readsav(f)
 
     channels = data["channels"].astype(str)
