@@ -67,10 +67,12 @@ where
 For an observed intensity of {math}`I_{i} \pm \sigma_{i}` the probability of observing is modelled as a Gaussian
 
 ```{math}
-p \left (d_{i} | \Theta \right ) = \exp -  \left [ (I_{i} - I_{pred}(\Theta ))^{2} / \sigma_{i}^{2} \right ]
+p \left (d_{i} | \Theta \right ) = \exp -  \left [ (I_{i} - I_{pred, i}(\Theta ))^{2} / \sigma_{i}^{2} \right ]
 ```
 
 The predicted intensity is given by
 ```{math}
-I_{pred} \left ( \lambda \right ) = Ab(Z) \int_{T} C \left ( n_{e}, T, \lambda \right )~DEM(\Theta(T))~dT
+I_{pred, i} =  \int_{T} \left [ Ab(Z_{i}) C_{i} \left ( n_{e}, T \right ) \right ]~DEM(\Theta(T))~dT
 ```
+
+In this equation the electron density and elemental abundances are kept fixed.
